@@ -259,7 +259,7 @@ def verify(environ, start_response):
     # create string containing sent variables
     queryVars = ''
     for parameter in query:
-        queryVars = queryVars + '&' + parameter + '=' + url_quote(query[parameter][0],'')
+        queryVars = queryVars + '&' + parameter + '=' + url_quote(query[parameter][0].encode('utf-8'), '')
     
     redirect = redirect + '?success='+str(responseVars['success'])
     if responseVars.has_key('captcha'):
